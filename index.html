@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECTISAG SAC - Servicios de Construcción Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3));
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating:nth-child(even) {
+            animation-delay: -3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        .service-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-image:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: #fbbf24;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .certificate-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-badge:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            text-decoration: none;
+            color: #FFF;
+            background-color: #128c7e;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hero Enhanced Styles */
+        .hero-section {
+            background: linear-gradient(45deg, #4a5568, #718096, #a0aec0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: particleFloat 20s infinite linear;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) translateX(-50px) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) translateX(50px) rotate(360deg);
+            }
+        }
+
+        .hero-title-main {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #000000;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        .hero-subtitle {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #2563eb, #1d4ed8, #1e40af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: subtitleSlide 4s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0% { text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); }
+            100% { text-shadow: 4px 4px 8px rgba(255, 255, 255, 0.5); }
+        }
+
+        @keyframes subtitleSlide {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        .hero-image-overlay {
+            background: linear-gradient(
+                135deg, 
+                rgba(74, 85, 104, 0.3) 0%, 
+                rgba(113, 128, 150, 0.2) 30%,
+                rgba(160, 174, 192, 0.1) 60%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+        }
+
+        .hero-button {
+            background: linear-gradient(45deg, #f59e0b, #d97706);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-button:hover::before {
+            left: 100%;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.6);
+        }
+
+        .construction-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .crane-icon, .building-icon, .gear-icon {
+            position: absolute;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.1);
+            animation: constructionFloat 15s ease-in-out infinite;
+        }
+
+        .crane-icon {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .building-icon {
+            top: 60%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        .gear-icon {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+        @keyframes constructionFloat {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.1;
+            }
+            25% { 
+                transform: translateY(-20px) rotate(5deg);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: translateY(-10px) rotate(-5deg);
+                opacity: 0.2;
+            }
+            75% { 
+                transform: translateY(-30px) rotate(3deg);
+                opacity: 0.4;
+            }
+        }
+
+        .years-badge {
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+            animation: badgeGlow 2s ease-in-out infinite alternate;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        @keyframes badgeGlow {
+            0% { box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4); }
+            100% { box-shadow: 0 15px 35px rgba(37, 99, 235, 0.7), 0 0 20px rgba(37, 99, 235, 0.3); }
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #000000;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: scrollBounce 2s infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Text color changes for better readability */
+        .hero-text {
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .hero-text-light {
+            color: #4a5568;
+        }
+
+        /* Responsive adjustments for hero */
+        @media (max-width: 768px) {
+            .hero-title-main {
+                font-size: 4rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .hero-stats {
+                gap: 1.5rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .years-badge {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold gradient-text">ECTISAG SAC</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#inicio" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Inicio</a>
+                        <a href="#nosotros" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Nosotros</a>
+                        <a href="#servicios" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Servicios</a>
+                        <a href="#clientes" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Clientes</a>
+                        <a href="#contacto" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Contacto</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#inicio" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Inicio</a>
+                <a href="#nosotros" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Nosotros</a>
+                <a href="#servicios" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Servicios</a>
+                <a href="#clientes" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Clientes</a>
+                <a href="#contacto" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Enhanced -->
+    <section id="inicio" class="hero-section relative min-h-screen flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c4e0a3b3-48b4-467e-974e-27ee6e26dc37.png" alt="Spectacular view of massive modern agroindustrial plant construction with multiple cranes, steel framework, concrete structures, industrial equipment being installed, construction workers in safety gear, dramatic lighting at golden hour with city skyline in background" class="w-full h-full object-cover" />
+            <div class="hero-image-overlay absolute inset-0"></div>
+        </div>
+
+        <!-- Animated Particles -->
+        <div class="hero-particles absolute inset-0 z-10"></div>
+
+        <!-- Construction Elements -->
+        <div class="construction-elements">
+            <i class="fas fa-crane-truck crane-icon"></i>
+            <i class="fas fa-building building-icon"></i>
+            <i class="fas fa-cogs gear-icon"></i>
+        </div>
+
+        <!-- Years Badge -->
+        <div class="years-badge z-30">
+            <i class="fas fa-award mr-2"></i>
+            11+ AÑOS
+        </div>
+
+        <!-- Main Content -->
+        <div class="relative z-20 text-center px-4 max-w-6xl">
+            <h1 class="hero-title mb-8 leading-none">
+                <span class="hero-title-main block">ECTISAG SAC</span>
+                <span class="hero-subtitle block mt-4">CONSTRUYENDO EL FUTURO</span>
+            </h1>
+            
+            <p class="text-2xl md:text-3xl mb-12 max-w-4xl mx-auto leading-relaxed font-light hero-text">
+                <span class="text-orange-600 font-semibold">Líderes</span> en construcción y servicios especializados para las 
+                <span class="text-blue-600 font-semibold">principales instituciones del Perú</span>
+            </p>
+
+            <!-- Hero Stats -->
+            <div class="hero-stats flex-col md:flex-row">
+                <div class="stat-item">
+                    <span class="stat-number">11+</span>
+                    <span class="stat-label">Años de Experiencia</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Proyectos Completados</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Certificaciones ISO</span>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mt-16">
+                <a href="#servicios" class="hero-button text-black px-10 py-5 rounded-full text-xl font-bold transition duration-300 transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fas fa-tools mr-3 text-2xl"></i>
+                    NUESTROS SERVICIOS
+                </a>
+                <a href="#contacto" class="border-3 border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white px-10 py-5 rounded-full text-xl font-bold transition duration-300 transform hover:scale-105 inline-flex items-center justify-center">
+                    <i class="fas fa-phone mr-3 text-2xl"></i>
+                    CONTACTAR AHORA
+                </a>
+            </div>
+
+            <!-- Specialty Highlight -->
+            <div class="mt-16 bg-gradient-to-r from-teal-500 to-cyan-600 px-8 py-4 rounded-full inline-block">
+                <p class="text-xl font-bold text-white">
+                    <i class="fas fa-industry mr-2"></i>
+                    ESPECIALISTAS EN PLANTAS AGROINDUSTRIALES
+                </p>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down text-3xl text-gray-700"></i>
+            <p class="text-sm mt-2 uppercase tracking-wide text-gray-700">Descubre Más</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">Sobre Nosotros</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    ECTISAG SAC es una empresa consolidada con más de 11 años de experiencia, especializada en brindar soluciones integrales de construcción a las principales instituciones del sector público y privado.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="card-hover floating bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="bg-gradient-to-r from-blue-500 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">11+ Años</h3>
+                    <p class="text-gray-600">De experiencia sólida en el mercado peruano construyendo proyectos de gran envergadura</p>
+                </div>
+                
+                <div class="card-hover floating bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="bg-gradient-to-r from-green-500 to-teal-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-building text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Instituciones Públicas</h3>
+                    <p class="text-gray-600">Trabajamos con los principales organismos del Estado peruano</p>
+                </div>
+                
+                <div class="card-hover floating bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="bg-gradient-to-r from-yellow-500 to-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-certificate text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">Certificaciones ISO</h3>
+                    <p class="text-gray-600">Múltiples certificaciones internacionales que respaldan nuestra calidad</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">Nuestros Servicios</h2>
+                <p class="text-xl text-gray-600">Soluciones especializadas para cada necesidad</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Plantas Agroindustriales -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/26e58946-b90d-4dc8-83ef-3d61f357b2ab.png" alt="Modern agroindustrial processing plant with stainless steel equipment, conveyor belts, and large processing tanks in a clean industrial facility" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-industry text-3xl text-blue-600 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Plantas Agroindustriales</h3>
+                        </div>
+                        <p class="text-gray-600">Construcción y adecuación de plantas agroindustriales con tecnología de punta y estándares internacionales.</p>
+                    </div>
+                </div>
+
+                <!-- Resina Epóxica -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ebfaa75c-4245-4f33-995b-8d2fe21e8ad0.png" alt="Industrial floor with glossy epoxy resin coating in a warehouse setting, showing smooth reflective surface with professional finish" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-tint text-3xl text-green-600 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Resina Epóxica</h3>
+                        </div>
+                        <p class="text-gray-600">Aplicación profesional de resina epóxica para pisos industriales, comerciales y hospitalarios.</p>
+                    </div>
+                </div>
+
+                <!-- Paneles Sanitarios -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4cd0f3be-43c8-4919-91d4-10bbf4497496.png" alt="Modern bathroom interior with white sanitary panels, clean lines, and professional installation showing hygiene standards" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-shield-alt text-3xl text-purple-600 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Paneles Sanitarios</h3>
+                        </div>
+                        <p class="text-gray-600">Instalación de paneles sanitarios resistentes y de alta calidad para áreas de salud y alimentarias.</p>
+                    </div>
+                </div>
+
+                <!-- Drywall -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/344bf773-e84f-408c-adfc-f5e4c3a82488.png" alt="Construction workers installing drywall partitions in modern office space, showing professional installation techniques" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-hammer text-3xl text-orange-600 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Adecuamiento en Drywall</h3>
+                        </div>
+                        <p class="text-gray-600">Construcción y adecuación de espacios con sistema drywall para oficinas y áreas comerciales.</p>
+                    </div>
+                </div>
+
+                <!-- Construcción de Viviendas -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/587353a9-f2cb-4ded-8edd-55c13e524b6b.png" alt="Modern residential housing construction with concrete structure, showing quality construction materials and professional workmanship" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-home text-3xl text-blue-700 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Construcción de Viviendas</h3>
+                        </div>
+                        <p class="text-gray-600">Construcción integral de viviendas con materiales de primera calidad y acabados superiores.</p>
+                    </div>
+                </div>
+
+                <!-- Pinturas -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9d706054-f78e-4010-b508-fe5c0e455c32.png" alt="Professional painters applying high-quality paint to interior and exterior walls with proper equipment and techniques" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-paint-brush text-3xl text-pink-600 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Pinturas Interiores y Exteriores</h3>
+                        </div>
+                        <p class="text-gray-600">Servicios especializados de pintura para interiores y exteriores con materiales de primera calidad.</p>
+                    </div>
+                </div>
+
+                <!-- Cableado Estructurado -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5c9c2435-474e-45d0-b48d-d991aae0e8c7.png" alt="Professional network cabling installation showing organized cable management in server room with proper labeling" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-network-wired text-3xl text-cyan-600 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Cableado Estructurado</h3>
+                        </div>
+                        <p class="text-gray-600">Instalación de sistemas de cableado estructurado para redes de datos y telecomunicaciones.</p>
+                    </div>
+                </div>
+
+                <!-- Videovigilancia -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/044dcefb-9872-4f63-b1e3-6d7b9138a58a.png" alt="Security camera surveillance system installation showing multiple IP cameras and analog cameras monitoring facility" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-video text-3xl text-indigo-600 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Cámaras de Videovigilancia</h3>
+                        </div>
+                        <p class="text-gray-600">Sistemas de videovigilancia analógicos e IP para seguridad integral de instalaciones.</p>
+                    </div>
+                </div>
+
+                <!-- Jardinería -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bf406941-f047-4914-b1bc-9d901758a531.png" alt="Beautiful landscaped garden with professional maintenance, showing well-maintained plants, grass, and garden design" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-seedling text-3xl text-green-500 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Jardinería en General</h3>
+                        </div>
+                        <p class="text-gray-600">Servicios completos de jardinería, paisajismo y mantenimiento de áreas verdes.</p>
+                    </div>
+                </div>
+
+                <!-- Porcelanato -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ead60617-4354-49c4-99a8-9065c3c5f3b7.png" alt="Professional porcelain tile installation showing precise alignment and perfect finish in modern interior space" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-th-large text-3xl text-gray-600 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Enchapado de Porcelanato</h3>
+                        </div>
+                        <p class="text-gray-600">Instalación profesional de porcelanato con acabados de alta calidad y durabilidad.</p>
+                    </div>
+                </div>
+
+                <!-- Instalaciones Eléctricas -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2c57a11f-f571-4cc7-a8bb-d1ff51ec68a7.png" alt="Professional electrical installation with organized wiring, circuit panels, and safety standards in commercial building" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-bolt text-3xl text-yellow-500 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Instalaciones Eléctricas</h3>
+                        </div>
+                        <p class="text-gray-600">Instalaciones eléctricas completas para proyectos residenciales, comerciales e industriales.</p>
+                    </div>
+                </div>
+
+                <!-- BIM -->
+                <div class="card-hover floating bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/dfcc2317-e9d5-4b84-a171-dec97708896b.png" alt="3D BIM modeling software interface showing detailed building information model with architectural and engineering data" class="service-image w-full" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-cube text-3xl text-blue-500 mr-3"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Especialista en BIM</h3>
+                        </div>
+                        <p class="text-gray-600">Modelado BIM para proyectos de construcción con tecnología 3D avanzada y gestión integral.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clientes" class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Nuestros Clientes</h2>
+                <p class="text-xl text-gray-200">Principales instituciones que confían en nosotros</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-effect p-6 rounded-2xl text-white text-center card-hover">
+                    <i class="fas fa-balance-scale text-4xl mb-4 text-yellow-400"></i>
+                    <h3 class="text-xl font-bold mb-2">Poder Judicial</h3>
+                    <p class="text-gray-200">Proyectos de infraestructura judicial</p>
+                </div>
+                
+                <div class="glass-effect p-6 rounded-2xl text-white text-center card-hover">
+                    <i class="fas fa-heart text-4xl mb-4 text-pink-400"></i>
+                    <h3 class="text-xl font-bold mb-2">INABIF</h3>
+                    <p class="text-gray-200">Construcción para bienestar familiar</p>
+                </div>
+                
+                <div class="glass-effect p-6 rounded-2xl text-white text-center card-hover">
+                    <i class="fas fa-cogs text-4xl mb-4 text-blue-400"></i>
+                    <h3 class="text-xl font-bold mb-2">ITP</h3>
+                    <p class="text-gray-200">Instituto Tecnológico de la Producción</p>
+                </div>
+                
+                <div class="glass-effect p-6 rounded-2xl text-white text-center card-hover">
+                    <i class="fas fa-oil-well text-4xl mb-4 text-green-400"></i>
+                    <h3 class="text-xl font-bold mb-2">MINEM</h3>
+                    <p class="text-gray-200">Ministerio de Energía y Minas</p>
+                </div>
+                
+                <div class="glass-effect p-6 rounded-2xl text-white text-center card-hover">
+                    <i class="fas fa-hammer text-4xl mb-4 text-orange-400"></i>
+                    <h3 class="text-xl font-bold mb-2">RCC</h3>
+                    <p class="text-gray-200">Autoridad para la Reconstrucción con Cambios</p>
+                </div>
+                
+                <div class="glass-effect p-6 rounded-2xl text-white text-center card-hover">
+                    <i class="fas fa-gavel text-4xl mb-4 text-purple-400"></i>
+                    <h3 class="text-xl font-bold mb-2">MINJUSDH</h3>
+                    <p class="text-gray-200">Ministerio de Justicia y Derechos Humanos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-6">Certificaciones</h2>
+                <p class="text-xl text-gray-600">Estándares internacionales que garantizan nuestra calidad</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="certificate-badge text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+                    <i class="fas fa-certificate mr-2"></i>ISO 37001
+                </div>
+                <div class="certificate-badge text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+                    <i class="fas fa-certificate mr-2"></i>ISO 9001
+                </div>
+                <div class="certificate-badge text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+                    <i class="fas fa-certificate mr-2"></i>ISO 45001
+                </div>
+                <div class="certificate-badge text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+                    <i class="fas fa-certificate mr-2"></i>ISO 18001
+                </div>
+                <div class="certificate-badge text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+                    <i class="fas fa-certificate mr-2"></i>ISO 27001
+                </div>
+                <div class="certificate-badge text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg">
+                    <i class="fas fa-search mr-2"></i>Auditor
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Contáctanos</h2>
+                <p class="text-xl text-gray-400">Estamos listos para tu próximo proyecto</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-2xl text-center card-hover">
+                    <div class="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fab fa-whatsapp text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">WhatsApp</h3>
+                    <p class="text-gray-400 mb-4">Álvaro - Contacto directo</p>
+                    <a href="https://wa.me/51986312717" class="text-green-400 hover:text-green-300 font-semibold">
+                        +51 986 312 717
+                    </a>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-2xl text-center card-hover">
+                    <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-envelope text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Email Corporativo</h3>
+                    <p class="text-gray-400 mb-2">
+                        <a href="mailto:ectisagperu@gmail.com" class="text-blue-400 hover:text-blue-300">
+                            ectisagperu@gmail.com
+                        </a>
+                    </p>
+                    <p class="text-gray-400">
+                        <a href="mailto:ing.alvarocss@hotmail.com" class="text-blue-400 hover:text-blue-300">
+                            ing.alvarocss@hotmail.com
+                        </a>
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-2xl text-center card-hover">
+                    <div class="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Horario de Atención</h3>
+                    <p class="text-gray-400 mb-2">Lunes a Viernes</p>
+                    <p class="text-purple-400 font-semibold">8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <div class="bg-gray-800 p-8 rounded-2xl inline-block">
+                    <h3 class="text-2xl font-bold text-white mb-4">¿Listo para comenzar tu proyecto?</h3>
+                    <p class="text-gray-400 mb-6">Contáctanos y recibe una cotización personalizada</p>
+                    <a href="https://wa.me/51986312717" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                        Enviar Mensaje por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-3xl font-bold gradient-text mb-4">ECTISAG SAC</div>
+                <p class="text-gray-400 mb-4">Construyendo el futuro del Perú desde hace más de 11 años</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://wa.me/51986312717" class="text-gray-400 hover:text-green-400 transition duration-300">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                    <a href="mailto:ectisagperu@gmail.com" class="text-gray-400 hover:text-blue-400 transition duration-300">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+                <div class="mt-8 pt-8 border-t border-gray-800">
+                    <p class="text-gray-500">© 2024 ECTISAG SAC. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/51986312717" class="whatsapp-float" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp" style="margin-top:16px"></i>
+    </a>
+
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.hero-particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size and position
+                const size = Math.random() * 6 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white/95');
+                header.classList.remove('bg-white/95');
+            }
+        });
+
+        // Add animation on scroll
+        function animateOnScroll() {
+            const cards = document.querySelectorAll('.card-hover');
+            
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (cardTop < windowHeight - 100) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize cards as hidden
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.6s ease';
+        });
+
+        // Initialize everything when page loads
+        window.addEventListener('load', function() {
+            createParticles();
+            animateOnScroll();
+            
+            // Animate hero title
+            const heroTitle = document.querySelector('.hero-title-main');
+            if (heroTitle) {
+                heroTitle.style.opacity = '0';
+                heroTitle.style.transform = 'translateY(50px)';
+                
+                setTimeout(() => {
+                    heroTitle.style.transition = 'all 1s ease';
+                    heroTitle.style.opacity = '1';
+                    heroTitle.style.transform = 'translateY(0)';
+                }, 500);
+            }
+            
+            // Animate hero subtitle
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            if (heroSubtitle) {
+                heroSubtitle.style.opacity = '0';
+                heroSubtitle.style.transform = 'translateX(-50px)';
+                
+                setTimeout(() => {
+                    heroSubtitle.style.transition = 'all 1s ease';
+                    heroSubtitle.style.opacity = '1';
+                    heroSubtitle.style.transform = 'translateX(0)';
+                }, 800);
+            }
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Add counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const values = [11, 100, 6]; // Corresponding values
+            
+            counters.forEach((counter, index) => {
+                const target = values[index];
+                const suffix = index === 0 ? '+' : (index === 1 ? '+' : '');
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target + suffix;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current) + suffix;
+                    }
+                }, 30);
+            });
+        }
+
+        // Trigger counter animation when hero section is visible
+        const heroSection = document.querySelector('.hero-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateCounters, 1500);
+                    observer.unobserve(heroSection);
+                }
+            });
+        });
+
+        observer.observe(heroSection);
+    </script>
+</body>
+</html>
+
